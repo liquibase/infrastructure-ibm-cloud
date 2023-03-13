@@ -9,14 +9,18 @@ resource "ibm_is_ssh_key" "testacc_sshkey" {
   public_key = var.ssh_public_key
 }
 
+data "ibm_is_ssh_key" "roderick" {
+  name       = "roderick"
+}
+
 # taras ssh key
-data "ibm_is_ssh_key" "taras" {
-  name = "tarasnew"
-}
+#data "ibm_is_ssh_key" "taras" {
+#  name = "tarasnew"
+#}
 # andrii t ssh key
-data "ibm_is_ssh_key" "atytarchuk" {
-  name = "atytarchuk"
-}
+#data "ibm_is_ssh_key" "atytarchuk" {
+#  name = "atytarchuk"
+#}
 
 # subnetwork
 resource "ibm_is_subnet" "testacc_subnet" {
@@ -83,7 +87,7 @@ resource "ibm_is_instance" "testacc_vsi" {
 
   vpc  = ibm_is_vpc.testacc_vpc.id
   zone = "${var.region}-${var.zone}"
-  keys = [ibm_is_ssh_key.testacc_sshkey.id, data.ibm_is_ssh_key.taras.id, data.ibm_is_ssh_key.atytarchuk.id]
+  keys = [ibm_is_ssh_key.testacc_sshkey.id, data.ibm_is_ssh_key.roderick.id]#, data.ibm_is_ssh_key.taras.id, data.ibm_is_ssh_key.atytarchuk.id]
 }
 
 # vsi 2
@@ -100,7 +104,7 @@ resource "ibm_is_instance" "testacc_vsi_2" {
 
   vpc  = ibm_is_vpc.testacc_vpc.id
   zone = "${var.region}-${var.zone}"
-  keys = [ibm_is_ssh_key.testacc_sshkey.id, data.ibm_is_ssh_key.taras.id]
+  keys = [ibm_is_ssh_key.testacc_sshkey.id, data.ibm_is_ssh_key.roderick.id]
 }
 
 # Floating IP
