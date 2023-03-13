@@ -1,8 +1,8 @@
 variable "os_type" {
-  default = "zlinux"
+  default = "zos"
 }
 variable "region" {
-  default = "jp-tok"
+  default = "ca-tor"
 }
 
 variable "zone" {
