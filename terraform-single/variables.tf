@@ -13,11 +13,7 @@ variable "vpc" {
   default = "terraform-test"
 }
 
-variable "ssh_public_key_name" {
-  default = "terraform-test"
-}
-
-variable "ssh_public_key" {
+variable "ssh_public_keys" {
 }
 
 variable "subnetwork_name" {
@@ -25,7 +21,7 @@ variable "subnetwork_name" {
 }
 
 variable "total_ipv4_address_count" {
-    default = 256
+  default = 256
 }
 
 variable "vsi_name" {
